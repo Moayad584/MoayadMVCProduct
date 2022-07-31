@@ -88,38 +88,40 @@ namespace MoayadMVC.Controllers
 
         // POST: ProductController/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+       // [ValidateAntiForgeryToken]
+        public ActionResult Edit(ProductModel productModel)
         {
-            try
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
-                return RedirectToAction(nameof(Index));
+                sqlCon.Open();
+                string query = "UPDATE Product SET  ProductName= @ProductName , Price= @Price , Quantity= @Quantity where ProductId= @ProductId";
+                SqlCommand sqlcmd = new SqlCommand(query, sqlCon);
+                sqlcmd.Parameters.AddWithValue("@ProductId", productModel.ProductId);
+                sqlcmd.Parameters.AddWithValue("@ProductName", productModel.ProductName);
+                sqlcmd.Parameters.AddWithValue("@Price", productModel.Price);
+                sqlcmd.Parameters.AddWithValue("@Quantity", productModel.Quantity);
+                sqlcmd.ExecuteNonQuery();
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
+
         }
 
         // GET: ProductController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "DELETE FROM Product where ProductId= @ProductId";
+                SqlCommand sqlcmd = new SqlCommand(query, sqlCon);
+                sqlcmd.Parameters.AddWithValue("@ProductId", id);
+                
+                sqlcmd.ExecuteNonQuery();
+            }
+            return RedirectToAction("Index");
         }
 
-        // POST: ProductController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
+        
     }
 }
