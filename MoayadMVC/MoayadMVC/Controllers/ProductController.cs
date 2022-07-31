@@ -32,19 +32,26 @@ namespace MoayadMVC.Controllers
             return View(new ProductModel ());
         }
 
-        // POST: ProductController/Create
+
+        
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(ProductModel productModel)
         {
-            try
+           using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
-                return RedirectToAction(nameof(Index));
+                sqlCon.Open ();
+                string query = "INSERT INTO Product VALUES(@ProductName,@Price,@Quantity)";
+                SqlCommand sqlcmd = new SqlCommand (query, sqlCon);
+               // sqlcmd.Parameters.AddWithValue("@ProductId", productModel.ProductId);
+                sqlcmd.Parameters.AddWithValue("@ProductName", productModel.ProductName);
+                sqlcmd.Parameters.AddWithValue("@Price", productModel.Price);
+                sqlcmd.Parameters.AddWithValue("@Quantity", productModel.Quantity);
+                sqlcmd.ExecuteNonQuery();
             }
-            catch
-            {
-                return View();
-            }
+
+           return RedirectToAction("Index");
+            
         }
 
         // GET: ProductController/Edit/5
