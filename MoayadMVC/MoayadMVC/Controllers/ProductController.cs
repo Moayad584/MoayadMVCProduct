@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MoayadMVC.Models;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -43,7 +44,7 @@ namespace MoayadMVC.Controllers
                 sqlCon.Open ();
                 string query = "INSERT INTO Product VALUES(@ProductName,@Price,@Quantity)";
                 SqlCommand sqlcmd = new SqlCommand (query, sqlCon);
-               // sqlcmd.Parameters.AddWithValue("@ProductId", productModel.ProductId);
+             
                 sqlcmd.Parameters.AddWithValue("@ProductName", productModel.ProductName);
                 sqlcmd.Parameters.AddWithValue("@Price", productModel.Price);
                 sqlcmd.Parameters.AddWithValue("@Quantity", productModel.Quantity);
@@ -57,7 +58,32 @@ namespace MoayadMVC.Controllers
         // GET: ProductController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ProductModel productModel = new ProductModel();
+            DataTable dtbleProduct = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "SELECT * FROM Product where ProductId= @ProductId";
+
+                SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
+                sqlDa.SelectCommand.Parameters.AddWithValue("@ProductId", id);
+                sqlDa.Fill(dtbleProduct);
+
+             
+            }
+            if(dtbleProduct.Rows.Count == 1)
+            {
+                productModel.ProductId = Convert.ToInt32(dtbleProduct.Rows[0][0].ToString());
+                productModel.ProductName = dtbleProduct.Rows[0][1].ToString();
+                productModel.Price = Convert.ToDecimal(dtbleProduct.Rows[0][2].ToString());
+                productModel.Quantity = Convert.ToInt32(dtbleProduct.Rows[0][3].ToString());
+
+                return View(productModel);
+            }
+            else
+                return RedirectToAction("Index");
+
+            
         }
 
         // POST: ProductController/Edit/5
