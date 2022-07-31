@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\E480\\Desktop\\MVCMoayad\\MoayadMVC\\MoayadMVC\\MoayadMVC.csproj": {}
+    "C:\\Users\\E480\\Desktop\\Moayad MVC git\\MoayadMVC\\MoayadMVC\\MoayadMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\E480\\Desktop\\MVCMoayad\\MoayadMVC\\MoayadMVC\\MoayadMVC.csproj": {
+    "C:\\Users\\E480\\Desktop\\Moayad MVC git\\MoayadMVC\\MoayadMVC\\MoayadMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\E480\\Desktop\\MVCMoayad\\MoayadMVC\\MoayadMVC\\MoayadMVC.csproj",
+        "projectUniqueName": "C:\\Users\\E480\\Desktop\\Moayad MVC git\\MoayadMVC\\MoayadMVC\\MoayadMVC.csproj",
         "projectName": "MoayadMVC",
-        "projectPath": "C:\\Users\\E480\\Desktop\\MVCMoayad\\MoayadMVC\\MoayadMVC\\MoayadMVC.csproj",
+        "projectPath": "C:\\Users\\E480\\Desktop\\Moayad MVC git\\MoayadMVC\\MoayadMVC\\MoayadMVC.csproj",
         "packagesPath": "C:\\Users\\E480\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\E480\\Desktop\\MVCMoayad\\MoayadMVC\\MoayadMVC\\obj\\",
+        "outputPath": "C:\\Users\\E480\\Desktop\\Moayad MVC git\\MoayadMVC\\MoayadMVC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\E480\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

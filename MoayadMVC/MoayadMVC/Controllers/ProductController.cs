@@ -1,14 +1,25 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace MoayadMVC.Controllers
 {
     public class ProductController : Controller
     {
+        string connectionString = @"Data Source=DESKTOP-9OU2CPR; Initial Catalog = MvcProductDB ;Integrated Security=True";
+
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            DataTable dtbleProduct = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM Product",sqlCon);
+                sqlDa.Fill(dtbleProduct);
+            }
+            return View(dtbleProduct);
         }
 
         // GET: ProductController/Details/5

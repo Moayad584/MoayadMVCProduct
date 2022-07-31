@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "+4Q4/MNbCg1F1OA4r270PV85/825hUYJzRTd5AiYTSSOelmiRhHupU0sBc6o4Tbd1AK+REFv8hZsZXn/EQAdRQ==",
+  "dgSpecHash": "TNGECSujwYxWdHU7RO1x4q2rbOg/fVAk+q/dL/3suVnSzMkd2YSv4XM7rStuypcvCvPrkHs61q9foSY+14CAbg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\E480\\Desktop\\MVCMoayad\\MoayadMVC\\MoayadMVC\\MoayadMVC.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\E480\\Desktop\\Moayad MVC git\\MoayadMVC\\MoayadMVC\\MoayadMVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\E480\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\E480\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\E480\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
+    "C:\\Users\\E480\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\E480\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\E480\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\E480\\.nuget\\packages\\system.data.sqlclient\\4.8.3\\system.data.sqlclient.4.8.3.nupkg.sha512",
+    "C:\\Users\\E480\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\E480\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }
