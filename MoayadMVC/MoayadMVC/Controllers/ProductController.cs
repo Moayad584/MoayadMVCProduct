@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MoayadMVC.Models;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -22,16 +23,13 @@ namespace MoayadMVC.Controllers
             return View(dtbleProduct);
         }
 
-        // GET: ProductController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+       
 
-        // GET: ProductController/Create
+        [HttpGet]
         public ActionResult Create()
         {
-            return View();
+
+            return View(new ProductModel ());
         }
 
         // POST: ProductController/Create
